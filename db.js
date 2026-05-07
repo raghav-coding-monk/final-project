@@ -1,7 +1,8 @@
-const dotenv = require("dotenv");
-dotenv.config();
-const mongoose = require("mongoose");
 
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+dotenv.config();
+import app from "./app";
 async function start() {
   try {
     // 1. Connect using Mongoose (This powers your Post and User models)
@@ -10,7 +11,6 @@ async function start() {
     console.log("✅ Connected to MongoDB Atlas");
 
     // 2. ONLY start the server AFTER the database is ready
-    const app = require("./app");
     
     // Use a fallback port if .env isn't loaded
     const port = process.env.PORT || 5005; 

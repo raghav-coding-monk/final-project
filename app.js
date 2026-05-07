@@ -1,16 +1,15 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const path = require("path");
-const router = require("./router");
-const crypto = require("crypto");
-
+import app from "./app.js";
+import express from "express";
+import cors from "cors";
+import path from "path";
+import router from "./router.js";
+import crypto from "crypto";
 // 1. GLOBAL SETTINGS
 if (!global.crypto) {
   global.crypto = crypto;
 }
 
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 // 2. MIDDLEWARE (Must come BEFORE routes)
 app.use(cors({
   origin: 'http://localhost:1002',
