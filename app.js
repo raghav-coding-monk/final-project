@@ -1,4 +1,4 @@
-import app from "./app.js";
+const app = express();
 import express from "express";
 import cors from "cors";
 import path from "path";
