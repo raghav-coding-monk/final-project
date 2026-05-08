@@ -1,9 +1,10 @@
+const express = require("express");
 const app = express();
-import express from "express";
-import cors from "cors";
-import path from "path";
-import router from "./router.js";
-import crypto from "crypto";
+const cors = require("cors");
+const path = require("path");
+const router = require("./router");
+const crypto = require("crypto");
+
 // 1. GLOBAL SETTINGS
 if (!global.crypto) {
   global.crypto = crypto;
@@ -27,9 +28,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(express.static(path.join(__dirname, 'client/build'))); 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
 // 4. API ROUTES
 // Using both prefixes is fine, but /api is cleaner for your React fetch calls
 app.use("/", router); 
